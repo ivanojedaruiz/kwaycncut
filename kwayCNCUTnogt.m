@@ -27,7 +27,7 @@ u.loc = reshape(linspace(1,n,n),nr,nc);
 %% Choose Points
 % choice = 0 uses saved points
 % choice = 1 allows the user to click on points
-choice = 0;
+choice = 1;
 %filename = ['newpts_',imgName];
 if choice ==0
     filename = [imgName,'pts'];
@@ -41,7 +41,7 @@ if choice ==0
     sets = size(pts,2);
 else if choice ==1
         pts = [];
-        sets =size(gtseg,3)+3;
+        sets =3;
         figure();clf;imagesc(Img);truesize([700,700]);
         colormap(gray);
         axis off;set(gca,'position',[0 0 1 1],'units','normalized');
@@ -97,7 +97,7 @@ end
 clear h
 %% Display results
 thresh=0.5;
-x(:,4)=x(:,4)*0.7;
+%x(:,4)=x(:,4)*0.7;
 [Imgt1,Imgt2,Label]=postProcesskway(x,Img,Img,pts,thresh);
 bw = edge(Label,0.01);
 figure();clf;
