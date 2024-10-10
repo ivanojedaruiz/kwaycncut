@@ -13,7 +13,7 @@ Imgo = imread([imgName,'.jpg']);
 %Imgo =[0,0,0,0,0;0,1,1,1,0;0,1,1,1,0;0,0,1,0,0;0,0,0,0,0]
 
 %% Preprocess Image
-Imgr = imresize(Imgo,[NaN 50]);
+Imgr = imresize(Imgo,[NaN 100]);
 Img=im2gray(Imgr);
 [nr,nc]=size(Img);
 n=nr*nc;
@@ -22,7 +22,6 @@ Img=rescale(double(Img)); %Change values to [0,1]
 %% Display grayscale image
 imagesc(Img)
 colormap('gray')
-pause 
 
 %% Affinity Matrix 
 [W{1},D] = computeWd(Img);
